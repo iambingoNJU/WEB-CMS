@@ -33,7 +33,6 @@ public class StudentRestController {
 
     @RequestMapping(value = "/{stuID}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Student> getStudent(@PathVariable("stuID") String stuID) {
-        this.studentService.saveStudent(new Student("bin", "zheng", "CS", new Double(30), new Double(40), new Double(30)));
         Student stu = studentService.findStudentByID(stuID);
         if(stu == null) {
             return new ResponseEntity<Student>(HttpStatus.NOT_FOUND);
