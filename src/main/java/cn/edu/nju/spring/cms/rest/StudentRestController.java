@@ -40,8 +40,9 @@ public class StudentRestController {
         return new ResponseEntity<Student>(stu, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Collection<Student>> getStudents() {
+        System.out.println("in getStudents()");
         Collection<Student> students = this.studentService.findAllStudent();
         if(students.isEmpty()) {
             return new ResponseEntity<Collection<Student>>(HttpStatus.NOT_FOUND);
